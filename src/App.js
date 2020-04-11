@@ -3,7 +3,7 @@ import KeyEvent from 'react-native-keyevent';
 
 import {View, Text} from 'react-native';
 
-const KeyEventListener = () => {
+const App = () => {
   React.useEffect(() => {
     KeyEvent.onKeyDownListener(keyEvent => {
       console.log('onKeyDownListener');
@@ -19,4 +19,4 @@ const KeyEventListener = () => {
   );
 };
 
-export default KeyEventListener;
+export default App;
