@@ -14,6 +14,7 @@
     "re:watch": "bsb -clean-world -make-world -w",
     "re:build": "bsb -clean-world -make-world",
     "scan": "adb shell input text",
+    "emulscan": "adb -s emulator-5554 shell input text ",
     "test": "jest",
     "lint": "eslint .",
     "list-avds": "$ANDROID_SDK_ROOT/emulator/emulator -list-avds",
@@ -22,6 +23,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-keyevent": "0.2.7",
     "reason-react": "0.7.0",
     "reason-react-native": "0.61.1"
   },
