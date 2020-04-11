@@ -3,6 +3,8 @@ import KeyEvent from 'react-native-keyevent';
 
 import {View, Text} from 'react-native';
 
+var ReasonApp = require('./App.bs').make;
+
 const App = () => {
   React.useEffect(() => {
     KeyEvent.onKeyDownListener(keyEvent => {
@@ -15,6 +17,7 @@ const App = () => {
   return (
     <View>
       <Text>Registering key listener</Text>
+      <ReasonApp />
     </View>
   );
 };
