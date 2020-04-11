@@ -6,12 +6,35 @@ import {View, Text} from 'react-native';
 var ReasonApp = require('./App.bs').make;
 
 const App = () => {
+  const [scannedKeyCodes, setScannedKeyCodes] = React.useState(() => []);
+  const [scannedKeys, setScannedKeys] = React.useState(() => []);
+  const [scannedKeyTypes, setScannedKeyTypes] = React.useState(() => []);
+  const [scannedKeyCodesTypes, setScannedKeyCodesTypes] = React.useState(
+    () => [],
+  );
+
   React.useEffect(() => {
     KeyEvent.onKeyDownListener(keyEvent => {
-      console.log('onKeyDownListener');
-      console.log(`onKeyDown keyCode: ${keyEvent.keyCode}`);
-      console.log(`Action: ${keyEvent.action}`);
-      console.log(`Key: ${keyEvent.pressedKey}`);
+      setScannedKeys(prev => {
+        prev.push(keyEvent.pressedKey);
+        return prev;
+      });
+      setScannedKeyTypes(prev => {
+        prev.push(typeof keyEvent.pressedKey);
+        return prev;
+      });
+      setScannedKeyCodes(prev => {
+        prev.push(keyEvent.keyCode);
+        return prev;
+      });
+      setScannedKeyCodesTypes(prev => {
+        prev.push(typeof keyEvent.keyCode);
+        return prev;
+      });
+      console.log(`scannedKeys: ${scannedKeys}`);
+      console.log(`scannedKeyTypes: ${scannedKeyTypes}`);
+      console.log(`scannedKeyCodes: ${scannedKeyCodes}`);
+      console.log(`scannedKeyCodesTypes: ${scannedKeyCodesTypes}`);
     });
     return () => KeyEvent.removeKeyDownListener();
   });
