@@ -21,16 +21,13 @@ public class MainActivity extends ReactActivity {
         //    In the default behavior multiple events are fired if a button
         //    is pressed for a while. You can prevent this behavior if you
         //    forward only the first event:
-        //        if (event.getRepeatCount() == 0) {
-        //            KeyEventModule.getInstance().onKeyDownEvent(keyCode, event);
-        //        }
+               if (event.getRepeatCount() == 0) {
+                   KeyEventModule.getInstance().onKeyDownEvent(keyCode, event);
+               }
         //
         // B. If multiple Events shall be fired when the button is pressed
         //    for a while use this code:
         //        KeyEventModule.getInstance().onKeyDownEvent(keyCode, event);
-        //
-        // Using B.
-        KeyEventModule.getInstance().onKeyDownEvent(keyCode, event);
 
         // There are 2 ways this can be done:
         //  1.  Override the default keyboard event behavior
