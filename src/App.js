@@ -13,6 +13,7 @@ const App = () => {
       console.log(`Action: ${keyEvent.action}`);
       console.log(`Key: ${keyEvent.pressedKey}`);
     });
+    return () => KeyEvent.removeKeyDownListener();
   });
   return (
     <View>
